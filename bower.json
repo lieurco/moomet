@@ -1,0 +1,12 @@
+{
+  "name": "yeoman-nunjucks",
+  "private": true,
+  "dependencies": {
+    "modernizr": "~2.8.1",
+    "modular-scale": "~3.0.0"
+  },
+  "devDependencies": {
+    "chai": "~3.5.0",
+    "mocha": "~3.2.0"
+  }
+}

@@ -1,0 +1,10 @@
+node_modules
+dist
+.tmp
+bower_components
+test/bower_components
+.babelrc
+.bowerrc
+.editorconfig
+.gitattributes
+.yo-rc.json

@@ -1,0 +1,26 @@
+// Sass Utilities
+// ==============
+// - Susy Error Output Override [variable]
+// - Susy Error [function]
+
+
+
+// Susy Error Output Override
+// --------------------------
+$_susy-error-output-override: false !default;
+
+
+
+// Susy Error
+// ----------
+@function _susy-error(
+  $message,
+  $source,
+  $override: $_susy-error-output-override
+) {
+  @if $override {
+    @return 'ERROR [#{$source}] #{$message}';
+  }
+
+  @error '[#{$source}] #{$message}';
+}

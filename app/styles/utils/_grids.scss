@@ -1,0 +1,101 @@
+// ======================= 
+// LET SUSY DO THE MATH
+// =======================
+
+@mixin container(){
+	@each $breakpoint, $width in $containers{
+		@include respond-to($breakpoint){
+			max-width: $width;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+}
+
+// block mixin
+// change settings for a block of content
+// (maybe we should add this to the Susy core?)
+// https://gist.github.com/mirisuzanne/9b5ca9df6642173e20058853031b8d88
+@mixin susy-settings-block($config) {
+  // store the old settings
+  $global: $susy;
+  // apply the new settings
+  $susy: map-merge($susy, $config) !global;
+  
+  // allow nested styles, using new settings
+  @content;
+  
+  // return to the initial settings
+  $susy: $global !global;
+}
+
+// Mobile first grid, huh?
+// I think so
+@for $i from 1 through map-get($susy, 'columns') {
+  .col-#{$i} {
+    width: span($i);
+  }
+  .push-#{$i}{
+  	left: span($i);
+  }
+  .pull-#{$i}{
+  	right: span($i);
+  }
+  .offset-#{$i}{
+  	margin-left: span($i);
+  }
+}
+
+@include respond-to (m){
+	@include susy-settings-block($susy-medium) {
+		@for $i from 1 through map-get($susy-medium, 'columns') {
+	  	.col-m-#{$i} {
+	    	width: span($i);
+	  	}
+	  	.push-m-#{$i}{
+		  	left: span($i);
+		  }
+		  .pull-m-#{$i}{
+		  	right: span($i);
+		  }
+		  .offset-m-#{$i}{
+		  	margin-left: span($i);
+		  }
+		}
+	}
+}
+
+@include respond-to (l){
+	@include susy-settings-block($susy-large) {
+		@for $i from 1 through map-get($susy-large, 'columns') {
+	  	.col-l-#{$i} {
+	    	width: span($i);
+	  	}
+	  	.push-l-#{$i}{
+		  	left: span($i);
+		  }
+		  .pull-l-#{$i}{
+		  	right: span($i);
+		  }
+		  .offset-l-#{$i}{
+		  	margin-left: span($i);
+		  }
+		}
+	}
+}
+
+.container{	
+	@include container();
+	.row{
+		@extend %clearfix;
+		margin-left: -1 * gutter()/2;
+		margin-right: -1 * gutter()/2;
+	}
+}
+
+[class*="col-"]{
+	position: relative;
+	padding-right: gutter()/2;
+  padding-left: gutter()/2;
+  float: left;
+}

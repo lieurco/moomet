@@ -1,0 +1,88 @@
+/* ============================================================================================= 
+* MODULAR TYPOGRAPHY START HERE!!!
+* Just posted this article http://rizqi.nizamilputra.com/guide-to-good-typography/
+================================================================================================ */
+
+$ms-base: 20px, 25px;
+$ms-ratio: $golden;
+$ms-maxvar: 8;
+
+/* --------------------------------------------------------
+* Use element-width instead of view port width
+* --------------------------------------------------------- */
+
+$rwd-typography: (
+	xs: (
+    base-font-size: 14px,
+    base-line-height: 21px,
+    element-width: 0
+  ),
+  s: (
+    base-font-size: 14px,
+    base-line-height: 21px,
+    element-width: 0
+  ),
+  m: (
+    base-font-size: 17px,
+    base-line-height: 26.35px,
+    element-width: 550px
+  ),
+  l: (
+    base-font-size: 20px,
+    base-line-height: 31px,
+    element-width: 768px
+  )
+);
+
+
+/// Map deep get
+/// @author Hugo Giraudel
+/// @link https://css-tricks.com/snippets/sass/deep-getset-maps/
+/// @access public
+/// @param {Map} $map - Map
+/// @param {Arglist} $keys - Key chain
+/// @return {*} - Desired value
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+  @return $map;
+}
+
+
+/// Generate base font-size on root-parent element
+/// I try to achieve good typography based on element width not view-port width
+/// Child elements will generate font-size based on modular scale on "em"
+/// Apply it on .good-type (in _base.scss). Thanks to EQCSS!
+
+@mixin root-fs(){
+	@each $label, $type in $rwd-typography {
+		@include element((min-width: map-get($type, element-width))) {
+			eq_this {
+				font-size: map-get($type, base-font-size);
+				line-height: map-get($type, base-line-height);
+			}
+		} 
+	}
+}
+
+// Apply to _base.scss to create modular scale class
+// -------------------------------------------------
+@mixin ms-var {
+  @for $i from 0 through $ms-maxvar {
+  	.ms#{$i}{
+  		font-size: em(ms($i), $context: nth($ms-base, 1));
+  		margin-top: 0;
+  		@if $i > 3{
+  			line-height: 1em;
+  		} @else {
+  			line-height: 1.45em;
+  		}
+  		@if $i > 1{
+  			margin-bottom: 0.5em;
+  		} @else {
+  			margin-bottom: 1em;
+  		}
+  	}
+  }
+}

@@ -1,0 +1,53 @@
+// ===============================
+//  HELPER CLASS
+// ================================
+
+.left-text{
+    text-align: left;
+}
+.right-text{
+    text-align: right;
+}
+.center-text{
+    text-align: center;
+}
+.vertical-align{
+    &--relative{
+        @include vertical-align($position: relative);
+    }
+    &--absolute{
+        @include vertical-align($position: absolute);
+    }
+}
+.display-table{
+    display: table;
+}
+.valign-middle{
+    display: table-cell;
+    vertical-align: middle;
+}
+.position{
+    &--relative{
+        position: relative;
+    }
+    &--absolute{
+        position: absolute;
+    }
+    &--static{
+        position: static;
+    }
+    &--fixed{
+        position: fixed;
+    }
+}
+%clearfix{
+    *zoom: 1;
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+    &:after{
+        clear: both;
+    }
+}

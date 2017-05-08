@@ -1,0 +1,60 @@
+// ============================================
+// FONT VARIABLE
+// ============================================
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,700|Noto+Sans:400,400i');
+
+$f-primary: 'Josefin Sans', sans-serif;
+$f-secondary: 'Noto Sans', sans-serif;
+
+// ===========================================
+// COLOR VARIABLE
+// ===========================================
+
+$c-primary: #FFD8C0;
+$c-secondary: #F72361;
+$c-tertiary: #1F1E62;
+$c-quaternary: #24B8F8;
+$c-black: #444;
+$c-white: #FFFCF9;
+
+// ===========================================
+// SUSY VARIABLE
+// ===========================================
+
+$susy: (
+  	'columns': 4,
+  	'gutters': 30px,
+);
+
+$susy-medium: (
+	'columns': 8,
+  	'gutters': 30px,
+);
+
+$susy-large: (
+	'columns': 12,
+  	'gutters': 30px,
+);
+
+// ===========================================
+// BREAKPOINT VARIABLE
+// ===========================================
+
+$breakpoints: (
+	xs: 0,
+  	s: 576px,
+  	m: 768px,
+  	l: 992px,
+  	xl: 1200px
+);
+
+// ===========================================
+// CONTAINER WIDTH VARIABLE
+// ===========================================
+
+$containers: (
+	s: 540px,
+	m: 720px,
+	l: 960px,
+	xl: 1140px
+);

@@ -1,0 +1,60 @@
+// MOOMET Style Page
+// by Rizqi Nizamil Putra || http://rizqi.im
+// @url http://lieur.co
+// TODO: rem mixins responsive!!
+
+body{
+	color: #333;
+	font-family: $f-secondary;
+}
+section{
+	> .container{
+		@include remunit(padding, 5rem 0);
+		> h1{
+			text-transform: uppercase;
+			text-align: center;
+			font-family: $f-primary;
+		}
+	}
+	&:nth-child(odd){
+		background: #fafafa;
+	}
+}
+#grid{
+	.row{
+		margin-bottom: 1em;
+		.row{
+			[class*="col-"]{
+				background: rgba(lightcoral, 0.5);
+				border-right: 1px solid rgba(lightcoral, 1);
+				font-size: 1em;
+				&:nth-child(odd){
+					background: rgba(lightcoral, 0.65);
+				}
+			}
+		}
+		&.utilities{
+			//padding: 1.5em;
+			//border: 2px solid rgba(lightcoral, 0.65);
+			background: #fafafa;
+		}
+	}
+	[class*="col-"]{
+		background: rgba(peachpuff, 0.5);
+		padding-top: 1em;
+		padding-bottom: 1em;
+		border: 1px solid rgba(peachpuff, 1);
+		text-align: center;
+		font-size: 0.75em;
+		text-overflow: ellipsis;
+    	overflow: hidden;
+    	white-space: nowrap;
+	}
+	h3{
+		margin-top: 2em;
+	}
+}
+
+.footer{
+	text-align: center;
+}
