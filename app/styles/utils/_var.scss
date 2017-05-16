@@ -28,12 +28,12 @@ $susy: (
 
 $susy-medium: (
 	'columns': 8,
-  	'gutters': 30px,
+  'gutters': 30px,
 );
 
 $susy-large: (
 	'columns': 12,
-  	'gutters': 30px,
+  'gutters': 30px,
 );
 
 // ===========================================
@@ -58,3 +58,10 @@ $containers: (
 	l: 960px,
 	xl: 1140px
 );
+
+// ===========================================
+// RTL / LRT SUPPORT
+// ===========================================
+
+$grid-alignment: left !global;
+$grid-alignment-rev: right !global;

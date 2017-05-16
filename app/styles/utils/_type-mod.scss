@@ -72,15 +72,16 @@ $rwd-typography: (
   @for $i from 0 through $ms-maxvar {
   	.ms#{$i}{
   		font-size: em(ms($i), $context: nth($ms-base, 1));
-  		margin-top: 0;
   		@if $i > 3{
   			line-height: 1em;
   		} @else {
   			line-height: 1.45em;
   		}
   		@if $i > 1{
+        margin-top: 1.5em;
   			margin-bottom: 0.5em;
   		} @else {
+        margin-top: 1em;
   			margin-bottom: 1em;
   		}
   	}

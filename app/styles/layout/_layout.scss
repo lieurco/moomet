@@ -9,7 +9,7 @@ body{
 }
 section{
 	> .container{
-		@include remunit(padding, 5rem 0);
+		@include remunit(padding, 1rem 0);
 		> h1{
 			text-transform: uppercase;
 			text-align: center;
@@ -17,7 +17,7 @@ section{
 		}
 	}
 	&:nth-child(odd){
-		background: #fafafa;
+		background: rgba(peachpuff, 0.1);
 	}
 }
 #grid{
