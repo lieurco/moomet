@@ -26,7 +26,7 @@
 // BREAKPOINT -----/
 @mixin respond-to($breakpoint) { 
   @if map-has-key($breakpoints, $breakpoint) {
-    @media (min-width: #{map-get($breakpoints, $breakpoint)}) {
+    @media (min-width: #{map-get($breakpoints, $breakpoint)} * 1px) {
       @content;
     }
   } 
@@ -197,5 +197,19 @@ $browser-context: 16;
       }
     }
   }
+}
+
+/// Map deep get
+/// @author Hugo Giraudel
+/// @access public
+/// @param {Map} $map - Map
+/// @param {Arglist} $keys - Key chain
+/// @return {*} - Desired value
+/// $m-breakpoint: map-deep-get($o-grid-default-config, "layouts", "M");
+@function map-deep-get($map, $keys...) {
+    @each $key in $keys {
+        $map: map-get($map, $key);
+    }
+    @return $map;
 }
 

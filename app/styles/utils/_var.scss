@@ -22,19 +22,42 @@ $c-white: #FFFCF9;
 // ===========================================
 
 $susy: (
-  	'columns': 4,
-  	'gutters': 30px,
-);
-
-$susy-medium: (
-	'columns': 8,
+  'columns': 4,
   'gutters': 30px,
 );
 
-$susy-large: (
-	'columns': 12,
+$susy-s: (
+  'columns': 4,
   'gutters': 30px,
 );
+
+$susy-m: (
+  'columns': 8,
+  'gutters': 30px,
+);
+
+$susy-l: (
+  'columns': 12,
+  'gutters': 30px,
+);
+
+$susy-settings: (
+  s: (
+    'columns': 4,
+    'gutters': 30px,
+  ),
+
+  m: (
+    'columns': 8,
+    'gutters': 30px,
+  ),
+
+  l: (
+    'columns': 12,
+    'gutters': 30px,
+  )
+);
+
 
 // ===========================================
 // BREAKPOINT VARIABLE
@@ -42,10 +65,10 @@ $susy-large: (
 
 $breakpoints: (
 	xs: 0,
-  	s: 576px,
-  	m: 768px,
-  	l: 992px,
-  	xl: 1200px
+	s: 576,
+	m: 768,
+	l: 992,
+	xl: 1200
 );
 
 // ===========================================
@@ -63,5 +86,12 @@ $containers: (
 // RTL / LRT SUPPORT
 // ===========================================
 
-$grid-alignment: left !global;
-$grid-alignment-rev: right !global;
+$grid-alignment: left;
+$grid-alignment-rev: right;
+
+// ===========================================
+// GRID TYPE
+// Value can be float or flexbox
+// ===========================================
+
+$grid-type: float !default;

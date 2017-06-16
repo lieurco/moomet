@@ -1,3 +1,13 @@
+{# 
+############################
+TODO: 
+1. Justify content
+2. Align items
+3. Align self
+############################
+#}
+
+{% set flexbox = true %}
 {% extends "layouts/default.njk" %}
 
 {% block content %}
@@ -18,12 +28,12 @@
       <div class="col-l-6 col-2">.col-l-6 .col-2</div>
       <div class="col-l-6 col-2">.col-l-6 .col-2</div>
     
-      <div class="col-l-3 col-2">.col-l-3 .col-2</div>
-      <div class="col-l-4 col-2">.col-l-4 .col-2</div>
-      <div class="col-l-5 col-2">.col-l-5 .col-2</div>
-      <div class="col-l-6 col-2">.col-l-6 .col-2</div>
-      <div class="col-l-5 col-4">.col-l-5 .col-4</div>
-      <div class="col-l-1 col-4">.col-l-1 .col-4</div>
+      <div class="col-l-3 .col-2">.col-l-3 .col-2</div>
+      <div class="col-l-4 .col-2">.col-l-4 .col-2</div>
+      <div class="col-l-5 .col-2">.col-l-5 .col-2</div>
+      <div class="col-l-6 .col-2">.col-l-6 .col-2</div>
+      <div class="col-l-5 .col-4">.col-l-5 .col-4</div>
+      <div class="col-l-1 .col-4">.col-l-1 .col-4</div>
     </div>
     
     <h3>Grid - Nesting</h3>
@@ -36,6 +46,28 @@
         </div>
       </div>
       <div class="col-l-4">.col-l-4</div>
+    </div>
+
+    <h3>Grid - Justify Content</h3>
+    <div class="row justify-content-start">
+      <div class="col-l-2 push-l-8">.col-2</div>
+      <div class="col-l-4 pull-l-2">.col-4</div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-l-2 offset-l-2">.col-2</div>
+      <div class="col-l-4 offset-l-1">.col-4</div>
+    </div>
+    <div class="row justify-content-end">
+      <div class="col-l-2 offset-l-2">.col-2</div>
+      <div class="col-l-4 offset-l-1">.col-4</div>
+    </div>
+    <div class="row justify-content-around">
+      <div class="col-l-2 offset-l-2">.col-2</div>
+      <div class="col-l-4 offset-l-1">.col-4</div>
+    </div>
+    <div class="row justify-content-between">
+      <div class="col-l-2 offset-l-2">.col-2</div>
+      <div class="col-l-4 offset-l-1">.col-4</div>
     </div>
     
     <h3>Grid - Utilities</h3>

@@ -15,7 +15,11 @@
     <!-- endbuild -->
 
     <!-- build:css styles/main.css -->
+    {% if flexbox %}
+    <link rel="stylesheet" href="styles/flexbox.css">
+    {% else %}
     <link rel="stylesheet" href="styles/main.css">
+    {% endif %}
     <!-- endbuild -->
     
     <!-- build:js scripts/vendor/modernizr.js -->
