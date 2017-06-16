@@ -57,8 +57,8 @@
 }
 
 @each $breakpoint, $width in $breakpoints{
-	$min: check-xs($width);
-	@if $min{
+	//$min: check-xs($width);
+	@if $width > 575{
 		@include respond-to($breakpoint){
 			@each $size, $setting in $susy-settings{
 				@include susy-settings-block($setting) {

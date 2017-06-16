@@ -26,21 +26,6 @@ $susy: (
   'gutters': 30px,
 );
 
-$susy-s: (
-  'columns': 4,
-  'gutters': 30px,
-);
-
-$susy-m: (
-  'columns': 8,
-  'gutters': 30px,
-);
-
-$susy-l: (
-  'columns': 12,
-  'gutters': 30px,
-);
-
 $susy-settings: (
   s: (
     'columns': 4,
@@ -64,7 +49,6 @@ $susy-settings: (
 // ===========================================
 
 $breakpoints: (
-	xs: 0,
 	s: 576,
 	m: 768,
 	l: 992,
