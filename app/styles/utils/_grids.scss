@@ -12,79 +12,48 @@
 	}
 }
 
-// block mixin
-// change settings for a block of content
-// (maybe we should add this to the Susy core?)
-// 	
-@mixin susy-settings-block($config) {
-  // store the old settings
-  $global: $susy;
-  // apply the new settings
-  $susy: map-merge($susy, $config) !global;
-  
-  // allow nested styles, using new settings
-  @content;
-  
-  // return to the initial settings
-  $susy: $global !global;
-}	
-
-@function check-xs($width) {
-  @return if($width = 576, $width, null);
-}
-
-// Mobile first grid, huh?
-// I think so
-
-@for $i from 1 through map-deep-get($susy-settings, 's', 'columns') {
-  	.col-#{$i} {
-  		@if $grid-type == 'flexbox'{
-			flex: 0 0 span($i);
-			max-width: span($i);
-		} @else {
-			width: span($i);
-		}
-  	}
-  	.push-#{$i}{
-  		#{$grid-alignment}: span($i);
-  	}
-  	.pull-#{$i}{
-  		#{$grid-alignment-rev}: span($i);
-  	}
-  	.offset-#{$i}{
-  		margin-#{$grid-alignment}: span($i);
-  	}
-}
-
-@each $breakpoint, $width in $breakpoints{
-	//$min: check-xs($width);
-	@if $width > 575{
-		@include respond-to($breakpoint){
-			@each $size, $setting in $susy-settings{
-				@include susy-settings-block($setting) {
-					@for $i from 1 through map-get($susy, 'columns') {
-						.col-#{$breakpoint}-#{$i} {
-					  		@if $grid-type == 'flexbox'{
-								flex: 0 0 span($i);
-								max-width: span($i);
-							} @else {
-								width: span($i);
-							}
-					  	}
-					  	.push-#{$breakpoint}-#{$i}{
-					  		#{$grid-alignment}: span($i);
-						}
-						.pull-#{$breakpoint}-#{$i}{
-						  	#{$grid-alignment-rev}: span($i);
-						}
-						.offset-#{$breakpoint}-#{$i}{
-						  	margin-#{$grid-alignment}: span($i);
-						}
-					  }
+@each $size, $setting in $susy-settings{
+	@include susy-at($setting) {
+	   	@for $i from 1 through map-get($setting, 'total-column') {
+	   		@if $size == 's'{
+	   			.col-#{$i} {
+			  		@if $grid-type == 'flexbox'{
+						flex: 0 0 span($i);
+						max-width: span($i);
+					} @else {
+						width: span($i);
+					}
+			  	}
+			  	.push-#{$i}{
+			  		#{$grid-alignment}: span($i);
+			  	}
+			  	.pull-#{$i}{
+			  		#{$grid-alignment-rev}: span($i);
+			  	}
+			  	.offset-#{$i}{
+			  		margin-#{$grid-alignment}: span($i);
+			  	}
+			} @else {
+				.col-#{$size}-#{$i} {
+			  		@if $grid-type == 'flexbox'{
+						flex: 0 0 span($i);
+						max-width: span($i);
+					} @else {
+						width: span($i);
+					}
+			  	}
+			  	.push-#{$size}-#{$i}{
+			  		#{$grid-alignment}: span($i);
+				}
+				.pull-#{$size}-#{$i}{
+				  	#{$grid-alignment-rev}: span($i);
+				}
+				.offset-#{$size}-#{$i}{
+				  	margin-#{$grid-alignment}: span($i);
 				}
 			}
 		}
-	} 
+	}
 }
 
 @if $grid-type == 'flexbox'{

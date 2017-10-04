@@ -21,24 +21,32 @@ $c-white: #FFFCF9;
 // SUSY VARIABLE
 // ===========================================
 
-$susy: (
-  'columns': 4,
-  'gutters': 30px,
-);
-
 $susy-settings: (
   s: (
-    'columns': 4,
+    'max-width': 576px,
+    'total-column': 4,
+    'columns': susy-repeat(4),
     'gutters': 30px,
   ),
 
   m: (
-    'columns': 8,
+    'min-width': 768px,
+    'total-column': 8,
+    'columns': susy-repeat(8),
     'gutters': 30px,
   ),
 
   l: (
-    'columns': 12,
+    'min-width': 992px,
+    'total-column': 12,
+    'columns': susy-repeat(12),
+    'gutters': 30px,
+  ),
+
+  xl: (
+    'min-width': 1200px,
+    'total-column': 12,
+    'columns': susy-repeat(12),
     'gutters': 30px,
   )
 );
@@ -78,4 +86,4 @@ $grid-alignment-rev: right;
 // Value can be float or flexbox
 // ===========================================
 
-$grid-type: float !default;
+$grid-type: flexbox !default;

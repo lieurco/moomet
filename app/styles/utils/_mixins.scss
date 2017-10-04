@@ -36,6 +36,51 @@
   }
 }
 
+/* ------------------------------------------------------------------------------------
+  Source:  https://github.com/oddbird/susy/issues/658
+--------------------------------------------------------------------------------------*/
+
+@mixin susy-use($settings) {
+  //  parse and normalize any shorthand arguments
+  $settings: susy-compile($settings);
+
+  // record the global settings -
+  // and update the global variable with our new settings
+  $global: $susy;
+  $susy: map-merge($susy, $settings) !global;
+
+  // any content inside this mixin
+  // will use the local settings
+  @content;
+
+  // return the global variable to its initial value
+  $susy: $global !global;
+}
+
+@mixin susy-at($settings) {
+  //  parse and normalize any shorthand arguments
+  $settings: susy-compile($settings);
+
+  // build min-and-max queries
+  $min: map-get($settings, 'min-width');
+  $min: if($min, '(min-width: #{$min})', null);
+  $max: map-get($settings, 'max-width');
+  $max: if($max, '(max-width: #{$max})', null);
+
+  // combine them if we need both
+  $and: if($min and $max, '#{$min} and #{$max}', null);
+  // or fall back to the value we need…
+  $query: $and or $min or $max;
+
+  // apply the results…
+  @media #{$query} {
+    @include susy-use($settings) {
+      @content;
+    }
+  }
+}
+
+
 // OPACITY -----/
 @mixin opacity($opacity) {
   opacity: $opacity;

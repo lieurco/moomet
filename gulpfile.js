@@ -17,6 +17,7 @@ gulp.task('styles', () => {
     .pipe($.if(dev, $.sourcemaps.init()))
     .pipe($.sass.sync({
       outputStyle: 'expanded',
+      includePaths: ['node_modules/susy/sass'],
       precision: 10,
       includePaths: ['.']
     }).on('error', $.sass.logError))
