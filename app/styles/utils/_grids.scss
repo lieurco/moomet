@@ -15,13 +15,28 @@
 @each $size, $setting in $susy-settings{
 	@include susy-at($setting) {
 	   	@for $i from 1 through map-get($setting, 'total-column') {
+	   		.row{				
+				margin-left: -1 * gutter()/2;
+				margin-right: -1 * gutter()/2;
+				@if $grid-type == 'flexbox'{
+					display: flex;
+					flex-wrap: wrap;
+				}
+			}
 	   		@if $size == 's'{
 	   			.col-#{$i} {
 			  		@if $grid-type == 'flexbox'{
 						flex: 0 0 span($i);
 						max-width: span($i);
+						margin-right: gutter()/2;
+					  	margin-left: gutter()/2;
+						position: relative;
 					} @else {
 						width: span($i);
+						position: relative;
+						margin-right: gutter()/2;
+					  	margin-left: gutter()/2;
+					  	float: $grid-alignment;
 					}
 			  	}
 			  	.push-#{$i}{
@@ -38,8 +53,15 @@
 			  		@if $grid-type == 'flexbox'{
 						flex: 0 0 span($i);
 						max-width: span($i);
+						margin-right: gutter()/2;
+					  	margin-left: gutter()/2;
+						position: relative;
 					} @else {
 						width: span($i);
+						position: relative;
+						margin-right: gutter()/2;
+					  	margin-left: gutter()/2;
+					  	float: $grid-alignment;
 					}
 			  	}
 			  	.push-#{$size}-#{$i}{
@@ -117,19 +139,5 @@
 	@include container();
 	.row{
 		@extend %clearfix;
-		margin-left: -1 * gutter()/2;
-		margin-right: -1 * gutter()/2;
-		//@warn $grid-type;
-		@if $grid-type == 'flexbox'{
-			display: flex;
-			flex-wrap: wrap;
-		}
 	}
-}
-
-[class*="col-"]{
-	position: relative;
-	padding-right: gutter()/2;
-  	padding-left: gutter()/2;
-  	float: $grid-alignment;
 }
