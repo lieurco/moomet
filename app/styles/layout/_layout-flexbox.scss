@@ -24,7 +24,7 @@ section{
 	.row{
 		margin-bottom: 1em;
 		.row{
-			[class*="col-"]{
+			[class*="moo-"]{
 				background: rgba(lightcoral, 0.5);
 				border-right: 1px solid rgba(lightcoral, 1);
 				font-size: 1em;
@@ -39,7 +39,7 @@ section{
 			background: #fafafa;
 		}
 	}
-	[class*="col-"]{
+	[class*="moo-"]{
 		background: rgba(peachpuff, 0.5);
 		padding-top: 1em;
 		padding-bottom: 1em;

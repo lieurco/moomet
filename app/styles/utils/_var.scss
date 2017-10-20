@@ -22,32 +22,44 @@ $c-white: #FFFCF9;
 // ===========================================
 
 $susy-settings: (
-  s: (
-    'max-width': 576px,
+  xs: (
+    'max-width': 599px,
     'total-column': 4,
     'columns': susy-repeat(4),
-    'gutters': 30px,
+    'container-spread': 'wide',
+    'gutters': 30px
+  ),
+
+  s: (
+    'min-width': 600px,
+    'total-column': 4,
+    'columns': susy-repeat(4),
+    'container-spread': 'wide',
+    'gutters': 30px
   ),
 
   m: (
-    'min-width': 768px,
+    'min-width': 900px,
     'total-column': 8,
     'columns': susy-repeat(8),
-    'gutters': 30px,
+    'container-spread': 'wide',
+    'gutters': 30px
   ),
 
   l: (
-    'min-width': 992px,
-    'total-column': 12,
-    'columns': susy-repeat(12),
-    'gutters': 30px,
-  ),
-
-  xl: (
     'min-width': 1200px,
     'total-column': 12,
     'columns': susy-repeat(12),
-    'gutters': 30px,
+    'container-spread': 'wide',
+    'gutters': 30px
+  ),
+
+  xl: (
+    'min-width': 1800px,
+    'total-column': 12,
+    'columns': susy-repeat(12),
+    'container-spread': 'wide',
+    'gutters': 30px
   )
 );
 
@@ -86,4 +98,4 @@ $grid-alignment-rev: right;
 // Value can be float or flexbox
 // ===========================================
 
-$grid-type: flexbox !default;
+$grid-type: float !default;
