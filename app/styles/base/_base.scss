@@ -22,6 +22,7 @@ img{
 	max-width: 100%;
 }
 
+/*
 @include ms-var();
 
 h1{
@@ -44,6 +45,30 @@ h6{
 }
 p, ul, ol{
 	@extend .ms0;
+}
+*/
+
+h1{
+	@include sgl-heading(5);
+}
+h2{
+	@include sgl-heading(4);
+}
+h3{
+	@include sgl-heading(3);
+	// I changed the mixins on SassyGridLover;
+}
+h4{
+	@include sgl-heading(2);
+}
+h5{
+	@include sgl-heading(1);
+}
+h6{
+	@include sgl-heading(0);
+}
+p, ul, ol, pre{
+	@include sgl-heading(0);
 }
 
 a{

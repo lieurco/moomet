@@ -6,10 +6,36 @@
 body{
 	color: #333;
 	font-family: $f-secondary;
+	&.typo{
+		position: relative;
+		&:before{
+			position: absolute;
+		    width: auto;
+		    height: auto;
+		    z-index: 9999;
+		    content: '';
+		    display: block;
+		    pointer-events: none;
+		    top: 0;
+		    right: 0;
+		    bottom: 0;
+		    left: 0;
+		    background: url(https://basehold.it/image.php?height=21) repeat top left;
+		    @include respond-to(m){
+		    	background: url(https://basehold.it/image.php?height=24) repeat top left;
+		    }
+		    @include respond-to(l){
+		    	background: url(https://basehold.it/image.php?height=30) repeat top left;
+		    }
+		}
+	}
 }
 section{
 	> .container{
 		@include remunit(padding, 1rem 0);
+		.typo &{
+			padding-top: 0;
+		}
 		> h1{
 			text-transform: uppercase;
 			text-align: center;

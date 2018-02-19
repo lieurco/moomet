@@ -137,6 +137,8 @@
 .container{	
 	@include container();
 	.row{
-		@extend %clearfix;
+		@if $grid-type == 'float'{
+			@extend %clearfix;
+		}
 	}
 }
