@@ -1,4 +1,4 @@
-// generated on 2017-02-21 using generator-webapp 2.4.0
+// generated on 2018-03-19 using generator-webapp 3.0.1
 const gulp = require('gulp');
 const gulpLoadPlugins = require('gulp-load-plugins');
 const browserSync = require('browser-sync').create();
@@ -9,7 +9,7 @@ const runSequence = require('run-sequence');
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
-var dev = true;
+let dev = true;
 
 gulp.task('styles', () => {
   return gulp.src('app/styles/*.scss')
@@ -17,7 +17,6 @@ gulp.task('styles', () => {
     .pipe($.if(dev, $.sourcemaps.init()))
     .pipe($.sass.sync({
       outputStyle: 'expanded',
-      includePaths: ['node_modules/susy/sass'],
       precision: 10,
       includePaths: ['.']
     }).on('error', $.sass.logError))
@@ -68,12 +67,11 @@ gulp.task('views:reload', ['views'], () => {
 });
 
 gulp.task('html', ['views', 'styles', 'scripts'], () => {
-  //return gulp.src('app/*.html')
   return gulp.src(['app/*.html', '.tmp/*.html'])
     .pipe($.useref({searchPath: ['.tmp', 'app', '.']}))
-    .pipe($.if('*.js', $.uglify({compress: {drop_console: true}})))
-    .pipe($.if('*.css', $.cssnano({safe: true, autoprefixer: false})))
-    .pipe($.if('*.html', $.htmlmin({
+    .pipe($.if(/\.js$/, $.uglify({compress: {drop_console: true}})))
+    .pipe($.if(/\.css$/, $.cssnano({safe: true, autoprefixer: false})))
+    .pipe($.if(/\.html$/, $.htmlmin({
       collapseWhitespace: true,
       minifyCSS: true,
       minifyJS: {compress: {drop_console: true}},
@@ -101,7 +99,6 @@ gulp.task('fonts', () => {
 gulp.task('extras', () => {
   return gulp.src([
     'app/*',
-    //'!app/*.html'
     '!app/*.html',
     '!app/*.njk'
   ], {
@@ -119,14 +116,12 @@ gulp.task('serve', () => {
       server: {
         baseDir: ['.tmp', 'app'],
         routes: {
-          '/bower_components': 'bower_components',
-          '/node_modules': 'node_modules'
+          '/bower_components': 'bower_components'
         }
       }
     });
 
     gulp.watch([
-      //'app/*.html',
       'app/images/**/*',
       '.tmp/fonts/**/*'
     ]).on('change', reload);
@@ -177,11 +172,8 @@ gulp.task('wiredep', () => {
     }))
     .pipe(gulp.dest('app/styles'));
 
-  //gulp.src('app/*.html')
   gulp.src('app/layouts/*.njk')
     .pipe(wiredep({
-      exclude: ['bootstrap-sass'],
-      //ignorePath: /^(\.\.\/)*\.\./
       ignorePath: /^(\.\.\/)*\.\./,
        fileTypes: {
          njk: {
@@ -197,8 +189,7 @@ gulp.task('wiredep', () => {
          }
        }
     }))
-    //.pipe(gulp.dest('app'));
-    .pipe(gulp.dest('app/layouts'));
+    .pipe(gulp.dest('app'));
 });
 
 gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {

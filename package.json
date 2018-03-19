@@ -19,11 +19,10 @@
     "gulp-htmlmin": "^3.0.0",
     "gulp-if": "^2.0.2",
     "gulp-imagemin": "^3.0.1",
-    "gulp-liquify": "0.0.6",
     "gulp-load-plugins": "^1.2.4",
-    "gulp-nunjucks-render": "^2.0.0",
+    "gulp-nunjucks-render": "^2.2.2",
     "gulp-plumber": "^1.0.1",
-    "gulp-sass": "^2.0.0",
+    "gulp-sass": "^3.0.0",
     "gulp-size": "^2.1.0",
     "gulp-sourcemaps": "^2.2.0",
     "gulp-uglify": "^2.0.0",
@@ -46,7 +45,8 @@
     }
   },
   "dependencies": {
-    "eqcss": "^1.5.1",
-    "susy": "^3.0.1"
+    "eqcss": "^1.9.0",
+    "sassy-gridlover": "^5.2.1",
+    "susy": "^3.0.3"
   }
 }

@@ -1,12 +1,11 @@
 {
-  "name": "yeoman-nunjucks",
+  "name": "moomet",
   "private": true,
   "dependencies": {
-    "modernizr": "~2.8.1",
-    "modular-scale": "~3.0.0"
+    "modernizr": "~2.8.1"
   },
   "devDependencies": {
-    "chai": "~3.5.0",
-    "mocha": "~3.2.0"
+    "chai": "^4.1.2",
+    "mocha": "^5.0.4"
   }
 }
