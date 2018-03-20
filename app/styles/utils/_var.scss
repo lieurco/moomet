@@ -23,7 +23,7 @@ $c-white: #FFFCF9;
 
 $susy-settings: (
   xs: (
-    'max-width': 599px,
+    'max-width': 575px,
     'total-column': 4,
     'columns': susy-repeat(4),
     'container-spread': 'wide',
@@ -31,7 +31,7 @@ $susy-settings: (
   ),
 
   s: (
-    'min-width': 600px,
+    'min-width': 576px,
     'total-column': 4,
     'columns': susy-repeat(4),
     'container-spread': 'wide',
@@ -39,7 +39,7 @@ $susy-settings: (
   ),
 
   m: (
-    'min-width': 900px,
+    'min-width': 768px,
     'total-column': 8,
     'columns': susy-repeat(8),
     'container-spread': 'wide',
@@ -47,7 +47,7 @@ $susy-settings: (
   ),
 
   l: (
-    'min-width': 1200px,
+    'min-width': 992px,
     'total-column': 12,
     'columns': susy-repeat(12),
     'container-spread': 'wide',
@@ -55,6 +55,14 @@ $susy-settings: (
   ),
 
   xl: (
+    'min-width': 1200px,
+    'total-column': 12,
+    'columns': susy-repeat(12),
+    'container-spread': 'wide',
+    'gutters': 30px
+  ),
+
+  xxl: (
     'min-width': 1800px,
     'total-column': 12,
     'columns': susy-repeat(12),
@@ -72,7 +80,8 @@ $breakpoints: (
 	s: 576,
 	m: 768,
 	l: 992,
-	xl: 1200
+	xl: 1200,
+  xxl: 1800
 );
 
 // ===========================================
@@ -83,7 +92,8 @@ $containers: (
 	s: 540px,
 	m: 720px,
 	l: 960px,
-	xl: 1140px
+	xl: 1140px,
+  xxl: 1440px,
 );
 
 // ===========================================
