@@ -1,4 +1,4 @@
-@import "_var.scss";
+@import "../settings/_var.scss";
 
 /* ------------------------------------------------------------------------------------
 	Source:  http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/
@@ -26,7 +26,7 @@
 // BREAKPOINT -----/
 @mixin respond-to($breakpoint) { 
   @if map-has-key($breakpoints, $breakpoint) {
-    @media (min-width: #{map-get($breakpoints, $breakpoint)} * 1px) {
+    @media (min-width: #{map-get($breakpoints, $breakpoint)}px) {
       @content;
     }
   } 

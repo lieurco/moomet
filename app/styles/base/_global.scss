@@ -1,0 +1,23 @@
+*{
+	box-sizing: border-box;
+}
+html {
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
+	font-size: map-deep-get($rwd-typography, "s", "base-font-size");
+	@include respond-to(m){
+		font-size: map-deep-get($rwd-typography, "m", "base-font-size");
+	}
+	@include respond-to(l){
+		font-size: map-deep-get($rwd-typography, "l", "base-font-size");
+	}
+}
+body{
+	overflow-x: hidden;
+}
+
+img{
+	max-width: 100%;
+}
