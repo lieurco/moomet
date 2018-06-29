@@ -6,16 +6,20 @@
 @import 'node_modules/susy/sass/_susy.scss';
 /* end - Susy Threeish */
 
-@import "utils/_var.scss";
-@import "utils/_rem.scss";
-@import "utils/_mixins.scss";
-@import "utils/_animations.scss";
-@import "utils/_helper.scss";
-@import "utils/_type-mod.scss";
-@import "utils/_grids.scss";
+@import "settings/_var.scss";
 
-@import "base/_base.scss";
+@import "tools/_rem.scss";
+@import "tools/_mixins.scss";
+@import "tools/_animations.scss";
+@import "tools/_helper.scss";
+@import "tools/_type-mod.scss";
+@import "tools/_grids.scss";
 
-@import "layout/_layout.scss";
+@import "base/_global.scss";
+@import "base/_text.scss";
+@import "base/_form.scss";
+@import "base/_table.scss";
+
+@import "objects/_layout.scss";
 
 @import "themes/_theme-default.scss";

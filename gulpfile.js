@@ -155,7 +155,7 @@ gulp.task('serve:test', ['scripts'], () => {
       routes: {
         '/scripts': '.tmp/scripts',
         '/bower_components': 'bower_components',
-        '/node_modules': 'node_modules'
+        //'/node_modules': 'node_modules'
       }
     }
   });
