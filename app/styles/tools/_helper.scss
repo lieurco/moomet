@@ -22,6 +22,18 @@
 .display-table{
     display: table;
 }
+.display-flex{
+    display: flex;
+}
+.display-inline-flex{
+    display: inline-flex;
+}
+.flex-wrap{
+    flex-wrap: wrap;
+}
+.flex-nowrap{
+    flex-wrap: nowrap;
+}
 .valign-middle{
     display: table-cell;
     vertical-align: middle;
@@ -40,6 +52,97 @@
         position: fixed;
     }
 }
+
+@for $i from 0 through 10 {
+    $int: to-length($i, rem) / 2;
+    .margintop--#{$i}{
+        margin-top: rem($int);
+    }
+    .marginbottom--#{$i}{
+        margin-bottom: rem($int);
+    }
+    .marginleft--#{$i}{
+        margin-left: rem($int);
+    }
+    .marginright--#{$i}{
+        margin-right: rem($int);
+    }
+
+    .paddingtop--#{$i}{
+        padding-top: rem($int);
+    }
+    .paddingbottom--#{$i}{
+        padding-bottom: rem($int);
+    }
+    .paddingleft--#{$i}{
+        padding-left: rem($int);
+    }
+    .paddingright--#{$i}{
+        padding-right: rem($int);
+    }
+
+    .flex-grow--#{$i}{
+        flex-grow: $i;
+    }
+
+}
+
+@each $breakpoint, $width in $breakpoints{
+
+    @include respond-to($breakpoint){
+        .flex-wrap--#{$breakpoint}{
+            flex-wrap: wrap;
+        }
+        .flex-nowrap--#{$breakpoint}{
+            flex-wrap: nowrap;
+        }
+        .left-text--#{$breakpoint}{
+            text-align: left;
+        }
+        .right-text--#{$breakpoint}{
+            text-align: right;
+        }
+        .center-text--#{$breakpoint}{
+            text-align: center;
+        }
+    }
+
+    @for $i from 0 through 10 {
+        $int: to-length($i, rem) / 2;
+        @include respond-to($breakpoint){
+            .margintop--#{$i}--#{$breakpoint}{
+                margin-top: rem($int);
+            }
+            .marginbottom--#{$i}--#{$breakpoint}{
+                margin-bottom: rem($int);
+            }
+            .marginleft--#{$i}--#{$breakpoint}{
+                margin-left: rem($int);
+            }
+            .marginright--#{$i}--#{$breakpoint}{
+                margin-right: rem($int);
+            }
+
+            .paddingtop--#{$i}--#{$breakpoint}{
+                padding-top: rem($int);
+            }
+            .paddingbottom--#{$i}--#{$breakpoint}{
+                padding-bottom: rem($int);
+            }
+            .paddingleft--#{$i}--#{$breakpoint}{
+                padding-left: rem($int);
+            }
+            .paddingright--#{$i}--#{$breakpoint}{
+                padding-right: rem($int);
+            }
+
+            .flex-grow--#{$i}--#{$breakpoint}{
+                flex-grow: $i;
+            }
+        }
+    }
+}
+
 %clearfix{
     *zoom: 1;
     &:before,
@@ -49,5 +152,93 @@
     }
     &:after{
         clear: both;
+    }
+}
+%caret{
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgba(white, 0.6) transparent transparent transparent;
+}
+
+.hide{
+    display: none;
+}
+.visible-inline{
+    display: inline;
+}
+.visible-inline-block{
+    display: inline-block;
+}
+.visible-flex{
+    display: flex;
+}
+.visible-inline-flex{
+    display: inline-block;
+}
+
+@each $breakpoint, $width in $breakpoints{
+    .hide-max-#{$breakpoint}{
+        @media screen and (max-width: (to-number(#{$width}) - 1) * 1px){
+            display: none;
+        }
+    }
+    .hide-#{$breakpoint}{
+        @include respond-to(#{$breakpoint}){
+            display: none;
+        }
+    }
+    .visible-inline-max-#{$breakpoint}{
+        @media screen and (max-width: (to-number(#{$width}) - 1) * 1px){
+            display: inline;
+        }
+    }
+    .visible-inline-#{$breakpoint}{
+        @include respond-to(#{$breakpoint}){
+            display: inline;
+        }
+    }
+    .visible-inline-block-max-#{$breakpoint}{
+        @media screen and (max-width: (to-number(#{$width}) - 1) * 1px){
+            display: inline-block;
+        }
+    }
+    .visible-inline-block-#{$breakpoint}{
+        @include respond-to(#{$breakpoint}){
+            display: inline-block;
+        }
+    }
+    .visible-block-max-#{$breakpoint}{
+        @media screen and (max-width: (to-number(#{$width}) - 1) * 1px){
+            display: block;
+        }
+    }
+    .visible-block-#{$breakpoint}{
+        @include respond-to(#{$breakpoint}){
+            display: block;
+        }
+    }
+    .visible-flex-max-#{$breakpoint}{
+        @media screen and (max-width: (to-number(#{$width}) - 1) * 1px){
+            display: flex;
+        }
+    }
+    .visible-flex-#{$breakpoint}{
+        @include respond-to(#{$breakpoint}){
+            display: flex;
+        }
+    }
+    .visible-inline-flex-max-#{$breakpoint}{
+        @media screen and (max-width: (to-number(#{$width}) - 1) * 1px){
+            display: inline-flex
+        }
+    }
+    .visible-inline-flex-#{$breakpoint}{
+        @include respond-to(#{$breakpoint}){
+            display: inline-flex
+        }
     }
 }
